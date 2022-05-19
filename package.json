@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "ts-node-dev --respawn src/index.ts"
+    "start": "ts-node-dev --respawn src/"
   },
   "dependencies": {
     "cors": "^2.8.5",
