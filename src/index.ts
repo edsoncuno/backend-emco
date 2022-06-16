@@ -1,4 +1,4 @@
-import App from './views/App';
+import { AppApiRest } from "./views/api rest";
 
-const app = new App();
-app.run();
+const newAppApiRest = new AppApiRest();
+newAppApiRest.run();

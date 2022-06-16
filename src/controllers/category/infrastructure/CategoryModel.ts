@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const schema = new mongoose.Schema({
-    nombre: String
+    name: String
 }, {
     versionKey: false
 });
 
-export const CategoriaRepository = mongoose.model('Categoria', schema);
+export const CategoryModel = mongoose.model('Category', schema);

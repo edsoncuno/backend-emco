@@ -1,7 +1,6 @@
-import express from 'express'
+import { Request, Response, NextFunction } from 'express'
 
-const errorHandle = (err: Error, req: express.Request, res: express.Response, next: any) => {
-    console.error(err);
+const errorHandle = (err: Error, req: Request, res: Response, next: NextFunction) => {
     res.status(500);
     res.json({
         error: true,

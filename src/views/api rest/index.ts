@@ -1,12 +1,11 @@
-import config from '../config';
+import config from '../../config';
 import express from 'express'
 import cors from 'cors';
 import morgan from 'morgan';
-import routers from './routers';
+import routers from './routes';
 import errorHandle from './middlewares/error.middleware';
-import { connect } from 'mongoose';
 
-export default class App {
+export class AppApiRest {
     private app: express.Application;
 
     constructor() {
@@ -21,18 +20,7 @@ export default class App {
         this.app.use(errorHandle);
     }
 
-    private async connectToMongoDB(): Promise<void> {
-        try {
-            const database = await connect(String(config.MONGOOSE_URI));
-            console.log('Connected to the database: ', database.connection.name);
-        } catch (error: any) {
-            console.error(error.name);
-            console.error(error.message);
-        }
-    }
-
     public async run() {
-        await this.connectToMongoDB();
         this.app.listen(config.SERVER_PORT, () => {
             console.log(`Connected successfully to server on port: ${config.SERVER_PORT} - http://localhost:${config.SERVER_PORT}`);
         });
